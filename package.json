@@ -1,0 +1,47 @@
+{
+  "name": "axios-retry-after",
+  "version": "0.0.0",
+  "description": "A tiny HTTP 429 Retry-After interceptor for axios",
+  "repository": "https://github.com/compwright/axios-retry-after",
+  "bugs": "https://github.com/compwright/axios-retry-after/issues",
+  "main": "./src/",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "publish": "git push origin --tags && npm run changelog && git push origin",
+    "release:pre": "npm version prerelease && npm publish --tag pre",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "changelog": "github_changelog_generator -u compwright -p axios-retry-after && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
+    "lint": "standard src/*.js tests/*.js --fix",
+    "pretest": "npm run lint",
+    "test": "mocha ./test/*.test.js"
+  },
+  "keywords": [
+    "axios",
+    "retry",
+    "retry-after",
+    "api",
+    "rest"
+  ],
+  "author": "Jonathon Hill <jhill9693@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "peerDependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "mocha": "^8.0.1",
+    "standard": "^14.3.4"
+  }
+}
