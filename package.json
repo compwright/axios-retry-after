@@ -1,6 +1,6 @@
 {
   "name": "axios-retry-after",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny HTTP 429 Retry-After interceptor for axios",
   "repository": "https://github.com/compwright/axios-retry-after",
   "bugs": "https://github.com/compwright/axios-retry-after/issues",
