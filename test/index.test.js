@@ -12,16 +12,16 @@ describe('createInterceptor()', () => {
       const error = createError('HTTP 429 Rate Limit Exceeded', {}, null, {}, {
         status: 429,
         headers: {
-          ['retry-after']: 2
+          'retry-after': 2
         }
       })
 
       const response = { success: true }
-  
-      async function mockAxios() {
+
+      async function mockAxios () {
         return response
       }
-  
+
       const retryErrorInterceptor = createInterceptor(mockAxios)
       assert.strictEqual(typeof retryErrorInterceptor, 'function')
 

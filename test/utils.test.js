@@ -37,7 +37,7 @@ describe('utils', () => {
       const error = mockResponseError('HTTP 429 Rate Limit Exceeded', {
         status: 429,
         headers: {
-          ['retry-after']: 25
+          'retry-after': 25
         }
       })
       assert.strictEqual(isRetryable(error), true)
@@ -48,7 +48,7 @@ describe('utils', () => {
     it('returns a promise', () => {
       const error = mockResponseError('HTTP 429 Rate Limit Exceeded', {
         headers: {
-          ['retry-after']: 1
+          'retry-after': 1
         }
       })
 
@@ -60,7 +60,7 @@ describe('utils', () => {
     it('waits the number of seconds specified in the Retry-After header', (done) => {
       const error = mockResponseError('HTTP 429 Rate Limit Exceeded', {
         headers: {
-          ['retry-after']: 2
+          'retry-after': 2
         }
       })
 

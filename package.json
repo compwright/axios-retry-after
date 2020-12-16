@@ -15,7 +15,7 @@
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
     "changelog": "github_changelog_generator -u compwright -p axios-retry-after && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
-    "lint": "standard src/*.js tests/*.js --fix",
+    "lint": "standard src/*.js test/*.js --fix",
     "pretest": "npm run lint",
     "test": "mocha ./test/*.test.js"
   },
@@ -37,11 +37,11 @@
     ]
   },
   "peerDependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.0"
   },
   "devDependencies": {
-    "axios": "^0.19.2",
-    "mocha": "^8.0.1",
-    "standard": "^14.3.4"
+    "axios": "^0.21.0",
+    "mocha": "^8.2.1",
+    "standard": "^16.0.3"
   }
 }

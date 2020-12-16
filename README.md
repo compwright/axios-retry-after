@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/compwright/axios-retry-after.png?branch=master)](https://travis-ci.org/compwright/axios-retry-after)
 [![Dependency Status](https://img.shields.io/david/compwright/axios-retry-after.svg?style=flat-square)](https://david-dm.org/compwright/axios-retry-after)
 [![Download Status](https://img.shields.io/npm/dm/axios-retry-after.svg?style=flat-square)](https://www.npmjs.com/package/axios-retry-after)
+[![Sponsor on GitHub](https://img.shields.io/static/v1?label=Sponsor&message=❤&logo=GitHub&link=https://github.com/sponsors/compwright)](https://github.com/sponsors/compwright)
 
 A tiny HTTP retry interceptor for [axios](https://www.npmjs.com/package/axios).
 
