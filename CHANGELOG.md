@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.2](https://github.com/compwright/axios-retry-after/tree/v1.0.2) (2021-01-12)
+
+[Full Changelog](https://github.com/compwright/axios-retry-after/compare/v1.0.1...v1.0.2)
+
 ## [v1.0.1](https://github.com/compwright/axios-retry-after/tree/v1.0.1) (2020-12-16)
 
 [Full Changelog](https://github.com/compwright/axios-retry-after/compare/v1.0.0...v1.0.1)
