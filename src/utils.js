@@ -11,7 +11,7 @@ function isRetryable (error) {
 
 function wait (error) {
   return new Promise(
-    resolve => setTimeout(resolve, error.response.headers['retry-after'])
+    resolve => setTimeout(resolve, parseInt(error.response.headers["retry-after"]) * 1000))
   )
 }
 
