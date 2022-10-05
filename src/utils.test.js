@@ -1,15 +1,15 @@
-import { describe, test } from '@jest/globals'
+import { describe, expect, test } from '@jest/globals'
 import assert from 'assert'
-import createError from 'axios/lib/core/createError'
+import axios from 'axios'
 
 import { isRetryable, wait, retry } from '../src/utils'
 
 function mockRequestError (message) {
-  return createError(message, {}, null, {})
+  return new axios.AxiosError(message, null, {}, {})
 }
 
 function mockResponseError (message, response = {}) {
-  return createError(message, {}, null, {}, response)
+  return new axios.AxiosError(message, null, {}, {}, response)
 }
 
 describe('utils', () => {
@@ -97,9 +97,9 @@ describe('utils', () => {
 
     test('re-throws the error if config is not present', () => {
       const error = new Error('Foobar')
-      assert.throws(() => {
+      expect(() => {
         retry(() => {}, error)
-      }, error)
+      }).toThrowError(error)
     })
   })
 })
