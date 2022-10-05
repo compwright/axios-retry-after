@@ -4,21 +4,6 @@
   "description": "A tiny HTTP 429 Retry-After interceptor for axios",
   "repository": "https://github.com/compwright/axios-retry-after",
   "bugs": "https://github.com/compwright/axios-retry-after/issues",
-  "main": "./src/",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "publish": "git push origin --tags && npm run changelog && git push origin",
-    "release:pre": "npm version prerelease && npm publish --tag pre",
-    "release:patch": "npm version patch && npm publish",
-    "release:minor": "npm version minor && npm publish",
-    "release:major": "npm version major && npm publish",
-    "changelog": "github_changelog_generator -u compwright -p axios-retry-after && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
-    "lint": "standard src/*.js test/*.js --fix",
-    "pretest": "npm run lint",
-    "test": "mocha ./test/*.test.js"
-  },
   "keywords": [
     "axios",
     "retry",
@@ -28,20 +13,34 @@
   ],
   "author": "Jonathon Hill <jhill9693@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "engines": {
     "node": ">= 10"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "standard": {
     "env": [
-      "mocha"
+      "jest"
     ]
   },
   "peerDependencies": {
-    "axios": "^0.21.0"
+    "axios": "^1.0.0"
   },
   "devDependencies": {
-    "axios": "^0.21.0",
-    "mocha": "^8.4.0",
-    "standard": "*"
+    "axios": "latest",
+    "jest": "latest",
+    "standard": "latest",
+    "unbuild": "latest"
   }
 }

@@ -1,4 +1,4 @@
-function isRetryable (error) {
+export function isRetryable (error) {
   return !!(
     // must be a response error
     error.response &&
@@ -9,18 +9,16 @@ function isRetryable (error) {
   )
 }
 
-function wait (error) {
+export function wait (error) {
   return new Promise(
     resolve => setTimeout(resolve, error.response.headers['retry-after'])
   )
 }
 
-function retry (axios, error) {
+export function retry (axios, error) {
   if (!error.config) {
     throw error
   } else {
     return axios(error.config)
   }
 }
-
-module.exports = { isRetryable, wait, retry }
