@@ -25,8 +25,8 @@ yarn add axios-retry-after
 ## Example usage
 
 ```javascript
-const axios = require('axios')
-const retry = require('axios-retry-after')
+import axios from 'axios'
+import retry from 'axios-retry-after'
 const client = axios.createClient()
 client.interceptors.response.use(null, retry(client))
 ```

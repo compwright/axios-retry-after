@@ -1,6 +1,6 @@
-const utils = require('./utils')
+import * as utils from './utils'
 
-module.exports = function (axios, options = {}) {
+export default function (axios, options = {}) {
   const { isRetryable, wait, retry } = { ...utils, ...options }
 
   return async function (error) {
