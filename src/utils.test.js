@@ -67,7 +67,28 @@ describe('utils', () => {
 
       const timeout = setTimeout(() => {
         done(new Error('Timeout reached before wait resolved'))
-      }, 4)
+      }, 4000)
+
+      Promise.resolve(wait(error))
+        .then(() => {
+          clearTimeout(timeout)
+          done()
+        })
+        .catch(done)
+    })
+
+    test('waits until the Date specified in the Retry-After header', (done) => {
+      const twoSecondsFromNow = new Date(Date.now() + 2000)
+
+      const error = mockResponseError('HTTP 429 Rate Limit Exceeded', {
+        headers: {
+          'retry-after': twoSecondsFromNow.toUTCString()
+        }
+      })
+
+      const timeout = setTimeout(() => {
+        done(new Error('Timeout reached before wait resolved'))
+      }, 4000)
 
       Promise.resolve(wait(error))
         .then(() => {

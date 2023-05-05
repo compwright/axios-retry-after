@@ -1,9 +1,19 @@
 function isRetryable(error) {
-  return !!(error.response && error.response.status === 429 && error.response.headers["retry-after"]);
+  return !!// must be a response error
+  (error.response && // must be a rate limit error
+  error.response.status === 429 && // must have a Retry-After header
+  error.response.headers["retry-after"]);
 }
 function wait(error) {
+  const retryAfter = error.response.headers["retry-after"];
+  let timeToWait;
+  if (Number.isInteger(parseInt(retryAfter))) {
+    timeToWait = parseInt(retryAfter) * 1e3;
+  } else {
+    timeToWait = parseInt(new Date(retryAfter).getTime() - new Date(Date.now()).getTime());
+  }
   return new Promise(
-    (resolve) => setTimeout(resolve, error.response.headers["retry-after"])
+    (resolve) => setTimeout(resolve, timeToWait)
   );
 }
 function retry(axios, error) {
@@ -17,8 +27,8 @@ function retry(axios, error) {
 const utils = {
   __proto__: null,
   isRetryable: isRetryable,
-  wait: wait,
-  retry: retry
+  retry: retry,
+  wait: wait
 };
 
 function index(axios, options = {}) {
