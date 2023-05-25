@@ -25,6 +25,7 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "types": "./typings/index.d.ts",
   "files": [
     "dist"
   ],
@@ -41,6 +42,7 @@
     "jest": "latest",
     "standard": "latest",
     "standard-version": "latest",
+    "typescript": "latest",
     "unbuild": "latest"
   }
 }
