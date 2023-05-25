@@ -44,7 +44,7 @@ client.interceptors.response.use(null, retry(client, {
       // Use X-Retry-After rather than Retry-After, and cap retry delay at 60 seconds
       error.response.headers['x-retry-after'] && error.response.headers['x-retry-after'] <= 60
     )
-  }
+  },
 
   // Customize the wait behavior
   wait (error) {
@@ -52,7 +52,7 @@ client.interceptors.response.use(null, retry(client, {
       // Use X-Retry-After rather than Retry-After 
       resolve => setTimeout(resolve, error.response.headers['x-retry-after'])
     )
-  }
+  },
 
   // Customize the retry request itself
   retry (axios, error) {
